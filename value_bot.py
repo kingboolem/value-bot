@@ -1,15 +1,13 @@
 import requests
-import random
-import string
+import os
 from datetime import date
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
-import os
 
-# ====================== KEYS FROM RENDER ENVIRONMENT ======================
+# ====================== KEYS FROM RENDER ======================
 THE_ODDS_API_KEY = os.getenv("THE_ODDS_API_KEY")
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-# =====================================================================
+# ===========================================================
 
 BASE_URL = "https://api.the-odds-api.com/v4"
 
@@ -143,7 +141,7 @@ async def draw_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         msg += f"   {m['League']}\n"
         msg += f"   Draw Odds: {m['Draw Odds']}   (~{m['Implied Prob']}% probability)\n\n"
 
-    msg += "💡 Tip: Matches with Draw odds between 3.10 – 4.00 often have the best value."
+    msg += "💡 Tip: Matches with Draw odds between 3.10 – 4.00 often have good value."
     await update.message.reply_text(msg, parse_mode='Markdown')
 
 def main():
