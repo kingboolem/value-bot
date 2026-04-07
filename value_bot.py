@@ -4,10 +4,10 @@ from datetime import date
 from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-# ====================== KEYS FROM RENDER ======================
-THE_ODDS_API_KEY = os.getenv("THE_ODDS_API_KEY")
-TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-# ===========================================================
+# ====================== YOUR REAL KEYS ======================
+THE_ODDS_API_KEY = "c10f8a893bb8dc6c955bb60ef32d7df5"
+TELEGRAM_TOKEN = "8721727148:AAH0H7SLVtmplemhm0I1_FidKBLm5169UgA"
+# ======================================================
 
 BASE_URL = "https://api.the-odds-api.com/v4"
 
@@ -150,7 +150,7 @@ def main():
     app.add_handler(CommandHandler("banker", banker_command))
     app.add_handler(CommandHandler("rollover", rollover_command))
     app.add_handler(CommandHandler("draw", draw_command))
-    print("🤖 Value Hunter Bot is Running on Render!")
+    print("🤖 Value Hunter Bot is Running!")
     app.run_polling(drop_pending_updates=True)
 
 if __name__ == "__main__":
